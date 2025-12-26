@@ -20,7 +20,7 @@ im = cell(length(t), 1);
 h = figure(1);
 for k = 1:length(t)
     bot_x = x(k); bot_y = 0;                           % 杆底坐标
-    top_x = x(k) + 2*l*sin(theta(k)); top_y = 2*l*cos(theta(k)); % 杆顶坐标
+    top_x = x(k) - 2*l*sin(theta(k)); top_y = 2*l*cos(theta(k)); % 杆顶坐标
     plot(bot_x, bot_y, 'o', 'LineWidth', 1.5); hold on;
     plot([bot_x, top_x], [bot_y, top_y], 'LineWidth', 2); 
     hold off;
