@@ -70,7 +70,7 @@ for k = 1:length(t)
 end
 ```
 动画演示效果：
-<img width="840" height="630" alt="image" src="https://github.com/user-attachments/assets/c589bad0-cba1-43f9-b744-184bbdfcc7a1" />
+![pendulum_animation](https://github.com/user-attachments/assets/74cf9e2c-503c-413f-b883-91985661e56d)
 <img width="844" height="741" alt="image" src="https://github.com/user-attachments/assets/f34ea201-39b8-4ed6-b4eb-6e8054945e47" />
 黄色是目标夹角，蓝色是实际夹角。
 PID控制器只控制了摆杆的夹角，没有控制小车的位置，所以小车会一直匀速运动下去，优化方案后续另写一篇文章更新。
