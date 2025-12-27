@@ -12,15 +12,25 @@
 
 
 小车水平方向:
+
 $$F-N_车-b_1\dot{x}=M\ddot{x}$$
+
 摆杆水平方向：
+
 $$N_杆=m\frac{d^2(x-lsin\theta)}{dt^2}=m(\ddot{x}-\ddot{\theta}lcos\theta+\dot{\theta}^2lsin\theta)$$
+
 摆杆竖直方向：
+
 $$P_杆-mg=m\frac{d^2(lcos\theta)}{dt^2}=-m(\ddot{\theta}lsin\theta+\dot{\theta}^2lcos\theta)$$
+
 摆杆转动方向(对质心求矩)：
+
 $$P_杆lsin\theta+N_杆lcos\theta-b_2\dot{\theta}=I\ddot{\theta}$$
+
 牛顿第三定律：
+
 $$N_车=N_杆$$
+
 笔者注：摆杆角度的正负和参考网摘不同，这是为了保证闭环控制设计时为负反馈。
 # 倒立摆和简单PID控制器simulink建模
 根据上面的公式，可以用simulink搭建出模型：
