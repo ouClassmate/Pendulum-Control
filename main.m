@@ -13,9 +13,11 @@ rho = 1.293;   % 空气密度（kg/m3）
 A0 = 0.032;    % 直立状态的特征面积，假设摆杆是0.032m*0.032m*1m的立方体木杆，密度为500kg/m3
 theta0 = 30 * pi/180;   % 摆杆初始角度（rad）
 theta_d = 0 * pi/180;   % 摆杆目标角度（rad）
+x_d = 0;    % 目标位置
 %% 运行仿真获取数据
 % simout = sim("pendulum_simplePID", 2);  % 参数为模型名和仿真时间
-simout = sim("pendulum_friction_PID", 2);  % 参数为模型名和仿真时间
+% simout = sim("pendulum_friction_PID", 2);  % 参数为模型名和仿真时间
+simout = sim("pendulum_double_PID", 2);  % 参数为模型名和仿真时间
 t = simout.theta.time;
 theta = simout.theta.data;  % 摆杆角度
 x = simout.x.data;   % 滑块位移
