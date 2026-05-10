@@ -15,9 +15,9 @@ theta0 = 30 * pi/180;   % 摆杆初始角度（rad）
 theta_d = 0 * pi/180;   % 摆杆目标角度（rad）
 x_d = 0;    % 目标位置
 %% 运行仿真获取数据
-% simout = sim("pendulum_simplePID", 2);  % 参数为模型名和仿真时间
-% simout = sim("pendulum_friction_PID", 2);  % 参数为模型名和仿真时间
-simout = sim("pendulum_double_PID", 2);  % 参数为模型名和仿真时间
+% simout = sim("pendulum_simplePID", 2);  % 参数为模型名和仿真时间 simout =
+% simout = sim("pendulum_friction_PID", 2);  % 参数为模型名和仿真时间 simout =
+simout = sim("pendulum_double_PID", 20);  % 参数为模型名和仿真时间
 t = simout.theta.time;
 theta = simout.theta.data;  % 摆杆角度
 x = simout.x.data;   % 滑块位移
@@ -31,7 +31,7 @@ for k = 1:length(t)
     plot([bot_x, top_x], [bot_y, top_y], 'LineWidth', 2); 
     hold off;
     axis equal; 
-    axis([-3, 0.5, -0.10, 1.2]); grid on;
+    axis([-10, 1, -0.10, 1.2]); grid on;
     title('Pendulum Animation')
     drawnow;
     frame = getframe(h);      % 记录该帧
@@ -39,12 +39,12 @@ for k = 1:length(t)
     % pause(0.01);
 end
 %% GIF图片制作
-% filename = 'pendulum_animation.gif';
-% for idx = 1:length(t)
-%     [A, map] = rgb2ind(im{idx}, 256);
-%     if idx == 1
-%         imwrite(A, map, filename, 'gif', 'LoopCount', Inf, 'DelayTime', 1.00);
-%     else
-%         imwrite(A, map, filename, 'gif', 'WriteMode', 'append', 'DelayTime', 0.01);
-%     end
-% end
+filename = 'pendulum_animation.gif';
+for idx = 1:length(t)
+    [A, map] = rgb2ind(im{idx}, 256);
+    if idx == 1
+        imwrite(A, map, filename, 'gif', 'LoopCount', Inf, 'DelayTime', 1.00);
+    else
+        imwrite(A, map, filename, 'gif', 'WriteMode', 'append', 'DelayTime', 0.01);
+    end
+end
